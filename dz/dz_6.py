@@ -1,21 +1,37 @@
 """BINARY SEARCH"""
-def binary_search(element, arr):
-    left = 0
-    right = len(arr) - 1
-    while left <= right:
-        mid = (left + right) // 2
-        if arr[mid] == element:
-            print(f'Элемент {element} найден в позиции {mid}.')
-            return
-        elif arr[mid] < element:
-            left = mid + 1
-        else:
-            right = mid - 1
-    print(f'Элемент {element} не найден в списке.')
+import random 
 
-arr = [2, 4, 6, 8, 10, 12, 14, 16, 18, 20]
-element_to_find = 12
-binary_search(element_to_find, arr)
+def binary_search(val):
+    n = 5000 
+    resultOk = False 
+    first = 0
+    last = n - 1 
+    while first < last:
+        middle = (first+last)//2
+        if val == middle:
+            first = middle
+            last=first
+            resultOk = True
+            pos = middle
+        else:
+            if val>middle:
+                first=middle+1
+            else:
+                last=middle-1
+                
+    if resultOk:
+        print('Элемент найден')
+        print(pos)
+    else:
+        print('Элемент не найден')
+        
+    
+val = random.randint(0, 5000)
+print(val)
+binary_search(val)
+
+
+
 
 """BYBBLE SORT"""
 
@@ -32,5 +48,3 @@ def bubble_sort(arr):
 unsorted_list = [67, 24, 9, 18, 3]
 sorted_list = bubble_sort(unsorted_list)
 print('Отсортированный список:', sorted_list)
-
-#git remote add origin git@github.com:ваш_логин/название_репозитория.git
